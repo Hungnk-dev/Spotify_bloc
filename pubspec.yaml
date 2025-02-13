@@ -12,6 +12,19 @@ dependencies:
   flutter:
     sdk: flutter
   
+  #State Management
+  flutter_bloc: ^9.0.0
+  hydrated_bloc: ^10.0.0
+
+  #Storage
+  path_provider: ^2.1.5
+
+  #Navigation
+  go_router: ^14.8.0
+
+  #firebase
+  firebase_core: ^3.11.0
+  
   #utils
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.17
