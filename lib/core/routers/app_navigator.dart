@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:spotify_bloc/presentation/auth/pages/signin_screen.dart';
-import 'package:spotify_bloc/presentation/auth/pages/signup_or_signin.dart';
-import 'package:spotify_bloc/presentation/auth/pages/signup_screen.dart';
-import 'package:spotify_bloc/presentation/choose_mode/choose_mode_screen.dart';
-import 'package:spotify_bloc/presentation/intro/screen/get_started_screen.dart';
-import 'package:spotify_bloc/presentation/splash/screen/splash.dart';
+import 'package:spotify_bloc/features/presentation/auth/screens/signin_screen.dart';
+import 'package:spotify_bloc/features/presentation/auth/screens/signup_or_signin.dart';
+import 'package:spotify_bloc/features/presentation/auth/screens/signup_screen.dart';
+import 'package:spotify_bloc/features/presentation/choose_mode/screens/choose_mode_screen.dart';
+import 'package:spotify_bloc/features/presentation/intro/screen/get_started_screen.dart';
+import 'package:spotify_bloc/features/presentation/root/screens/root_screen.dart';
+import 'package:spotify_bloc/features/presentation/splash/screen/splash.dart';
 
 import 'app_routes.dart';
 
@@ -31,11 +32,15 @@ class AppRouter {
       ),
       transitionGoRoute(
         path: Routes.signIn,
-        pageBuilder: (context, state) => const SigninScreen(),
+        pageBuilder: (context, state) => SigninScreen(),
       ),
       transitionGoRoute(
         path: Routes.siginUp,
-        pageBuilder: (context, state) => const SignupScreen(),
+        pageBuilder: (context, state) => SignupScreen(),
+      ),
+      transitionGoRoute(
+        path: Routes.root,
+        pageBuilder: (context, state) => const RootScreen(),
       ),
     ],
   );

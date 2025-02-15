@@ -8,4 +8,7 @@ class Routes {
   static const String signupOrSignin = '/signupOrSignin';
   static const String signIn = '/signIn';
   static const String siginUp = '/siginUp';
+
+  //Root
+  static const String root = '/root';
 }
