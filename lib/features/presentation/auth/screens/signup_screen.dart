@@ -51,7 +51,7 @@ class SignupScreen extends StatelessWidget {
                       return;
                     }
 
-                    var result = await CallApiWidget.checkTimeCallApi(sl<SignupUsecase>().call(
+                    var result = await CallApiWidget.checkTimeCallApi(getIt<SignupUsecase>().call(
                       params: CreateUserReq(
                         fullName: _fullnameController.text.trim(),
                         email: _emailController.text.trim(),

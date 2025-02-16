@@ -5,7 +5,7 @@ import 'package:spotify_bloc/features/presentation/auth/screens/signup_or_signin
 import 'package:spotify_bloc/features/presentation/auth/screens/signup_screen.dart';
 import 'package:spotify_bloc/features/presentation/choose_mode/screens/choose_mode_screen.dart';
 import 'package:spotify_bloc/features/presentation/intro/screen/get_started_screen.dart';
-import 'package:spotify_bloc/features/presentation/root/screens/root_screen.dart';
+import 'package:spotify_bloc/features/presentation/home/screens/home_screen.dart';
 import 'package:spotify_bloc/features/presentation/splash/screen/splash.dart';
 
 import 'app_routes.dart';
@@ -40,7 +40,7 @@ class AppRouter {
       ),
       transitionGoRoute(
         path: Routes.root,
-        pageBuilder: (context, state) => const RootScreen(),
+        pageBuilder: (context, state) => const HomeScreen(),
       ),
     ],
   );

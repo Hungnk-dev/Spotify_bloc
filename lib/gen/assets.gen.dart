@@ -44,6 +44,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/bottom_pattern.svg
   String get bottomPattern => 'assets/icons/bottom_pattern.svg';
 
+  /// File path: assets/icons/home_top_card.svg
+  String get homeTopCard => 'assets/icons/home_top_card.svg';
+
   /// File path: assets/icons/icon_apple.svg
   String get iconApple => 'assets/icons/icon_apple.svg';
 
@@ -57,8 +60,16 @@ class $AssetsIconsGen {
   String get topPattern => 'assets/icons/top_pattern.svg';
 
   /// List of all assets
-  List<String> get values =>
-      [moon, sun, bottomPattern, iconApple, iconGoogle, logo, topPattern];
+  List<String> get values => [
+        moon,
+        sun,
+        bottomPattern,
+        homeTopCard,
+        iconApple,
+        iconGoogle,
+        logo,
+        topPattern
+      ];
 }
 
 class $AssetsImagesGen {
@@ -71,12 +82,16 @@ class $AssetsImagesGen {
   AssetGenImage get chooseModeBg =>
       const AssetGenImage('assets/images/choose_mode_bg.png');
 
+  /// File path: assets/images/home_artist.png
+  AssetGenImage get homeArtist =>
+      const AssetGenImage('assets/images/home_artist.png');
+
   /// File path: assets/images/intro_bg.png
   AssetGenImage get introBg =>
       const AssetGenImage('assets/images/intro_bg.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [authBg, chooseModeBg, introBg];
+  List<AssetGenImage> get values => [authBg, chooseModeBg, homeArtist, introBg];
 }
 
 class Assets {

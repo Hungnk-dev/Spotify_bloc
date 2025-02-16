@@ -8,11 +8,11 @@ import 'package:spotify_bloc/features/service_locator.dart';
 class AuthRepositoryImpl extends AuthRepository {
   @override
   Future<Either> signIn(SigninUserReq signinUserReq) async {
-    return await sl<AuthFirebaseService>().signIn(signinUserReq);
+    return await getIt<AuthFirebaseService>().signIn(signinUserReq);
   }
 
   @override
   Future<Either> signUp(CreateUserReq createUserReq) async {
-    return await sl<AuthFirebaseService>().signUp(createUserReq);
+    return await getIt<AuthFirebaseService>().signUp(createUserReq);
   }
 }

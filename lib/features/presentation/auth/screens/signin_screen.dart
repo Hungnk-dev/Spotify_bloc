@@ -47,7 +47,7 @@ class SigninScreen extends StatelessWidget {
                       ToastUtil.show('Please fill all fields');
                       return;
                     }
-                    var result = await CallApiWidget.checkTimeCallApi(sl<SigninUsecase>().call(
+                    var result = await CallApiWidget.checkTimeCallApi(getIt<SigninUsecase>().call(
                       params: SigninUserReq(
                         email: _emailController.text.trim(),
                         password: _passwordController.text.trim(),

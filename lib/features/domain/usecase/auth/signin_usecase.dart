@@ -6,6 +6,6 @@ import 'package:spotify_bloc/lib_src.dart';
 class SigninUsecase implements UseCase<Either, SigninUserReq> {
   @override
   Future<Either> call({SigninUserReq? params}) {
-    return sl<AuthRepository>().signIn(params!);
+    return getIt<AuthRepository>().signIn(params!);
   }
 }
