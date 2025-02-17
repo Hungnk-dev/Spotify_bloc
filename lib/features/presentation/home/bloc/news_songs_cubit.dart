@@ -4,7 +4,9 @@ import 'package:spotify_bloc/features/presentation/home/bloc/news_songs_state.da
 import 'package:spotify_bloc/lib_src.dart';
 
 class NewsSongsCubit extends Cubit<NewsSongsState> {
-  NewsSongsCubit() : super(NewsSongsLoading());
+  NewsSongsCubit() : super(NewsSongsLoading()) {
+    getNewsSongs();
+  }
 
   Future<void> getNewsSongs() async {
     var returnedSongs = await getIt<GetNewsSongsUsecase>().call();

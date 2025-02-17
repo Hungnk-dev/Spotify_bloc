@@ -38,6 +38,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/Moon.svg
   String get moon => 'assets/icons/Moon.svg';
 
+  /// File path: assets/icons/Play_icon.svg
+  String get playIcon => 'assets/icons/Play_icon.svg';
+
   /// File path: assets/icons/Sun.svg
   String get sun => 'assets/icons/Sun.svg';
 
@@ -62,6 +65,7 @@ class $AssetsIconsGen {
   /// List of all assets
   List<String> get values => [
         moon,
+        playIcon,
         sun,
         bottomPattern,
         homeTopCard,

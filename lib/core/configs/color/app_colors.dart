@@ -7,6 +7,8 @@ const grey = Color(0xffBEBEBE);
 const grey1 = Color(0xFF797979);
 const grey2 = Color(0xff343434);
 const grey3 = Color(0xFFAEAEAE);
+const grey4 = Color(0xFF959595);
+const grey5 = Color(0xFFE6E6E6);
 
 const Color white = Colors.white;
 

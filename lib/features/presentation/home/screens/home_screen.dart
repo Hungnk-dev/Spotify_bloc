@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:spotify_bloc/features/presentation/home/widgets/news_songs.dart';
 import 'package:spotify_bloc/lib_src.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -34,6 +35,18 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           children: [
             _buildArtistCard(),
             _buildTabBar(),
+            SizedBox(
+              height: 260.h,
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  const NewsSongs(),
+                  Container(),
+                  Container(),
+                  Container(),
+                ],
+              ),
+            ),
           ],
         ),
       ),

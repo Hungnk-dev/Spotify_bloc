@@ -8,6 +8,7 @@ import 'package:spotify_bloc/features/domain/repository/song/song_repo.dart';
 import 'package:spotify_bloc/features/domain/usecase/auth/signin_usecase.dart';
 import 'package:spotify_bloc/features/domain/usecase/auth/signup_usecase.dart';
 import 'package:spotify_bloc/features/domain/usecase/song/get_news_songs.dart';
+import 'package:spotify_bloc/features/domain/usecase/song/get_play_list.dart';
 
 final getIt = GetIt.instance;
 
@@ -22,4 +23,5 @@ Future<void> initializeDependencies() async {
   getIt.registerSingleton<SongFirebaseService>(SongFirebaseServiceImpl());
   getIt.registerSingleton<SongRepository>(SongRepositoryImpl());
   getIt.registerSingleton<GetNewsSongsUsecase>(GetNewsSongsUsecase());
+  getIt.registerSingleton<GetPlayListUsecase>(GetPlayListUsecase());
 }

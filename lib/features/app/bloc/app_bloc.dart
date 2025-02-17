@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spotify_bloc/features/presentation/home/bloc/news_songs_cubit.dart';
+import 'package:spotify_bloc/features/presentation/home/bloc/play_list_cubit.dart';
 
 import '../../presentation/choose_mode/bloc/theme_cubit.dart';
 
@@ -8,6 +9,7 @@ class AppBloc {
 
   static final ThemeCubit themeCubit = ThemeCubit();
   static final NewsSongsCubit newsSongsCubit = NewsSongsCubit();
+  static final PlayListCubit playListCubit = PlayListCubit();
 
   static final List<BlocProvider> providers = [
     BlocProvider<ThemeCubit>(
@@ -15,6 +17,9 @@ class AppBloc {
     ),
     BlocProvider<NewsSongsCubit>(
       create: (_) => newsSongsCubit,
+    ),
+    BlocProvider<PlayListCubit>(
+      create: (_) => playListCubit,
     ),
   ];
 
