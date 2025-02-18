@@ -4,10 +4,12 @@ import 'package:spotify_bloc/features/presentation/auth/screens/signin_screen.da
 import 'package:spotify_bloc/features/presentation/auth/screens/signup_or_signin.dart';
 import 'package:spotify_bloc/features/presentation/auth/screens/signup_screen.dart';
 import 'package:spotify_bloc/features/presentation/choose_mode/screens/choose_mode_screen.dart';
-import 'package:spotify_bloc/features/presentation/intro/screen/get_started_screen.dart';
 import 'package:spotify_bloc/features/presentation/home/screens/home_screen.dart';
+import 'package:spotify_bloc/features/presentation/intro/screen/get_started_screen.dart';
+import 'package:spotify_bloc/features/presentation/song_player/screens/song_player_screen.dart';
 import 'package:spotify_bloc/features/presentation/splash/screen/splash.dart';
 
+import '../../features/domain/entites/songs/song_entity.dart';
 import 'app_routes.dart';
 
 class AppRouter {
@@ -39,9 +41,15 @@ class AppRouter {
         pageBuilder: (context, state) => SignupScreen(),
       ),
       transitionGoRoute(
-        path: Routes.root,
+        path: Routes.home,
         pageBuilder: (context, state) => const HomeScreen(),
       ),
+      transitionGoRoute(
+          path: Routes.songPlayer,
+          pageBuilder: (context, state) {
+            final song = SongEntity.fromJson(state.uri.queryParameters);
+            return SongPlayerScreen(song: song);
+          }),
     ],
   );
 }

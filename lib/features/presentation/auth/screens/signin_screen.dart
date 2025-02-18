@@ -59,7 +59,7 @@ class SigninScreen extends StatelessWidget {
                       },
                       (r) {
                         ToastUtil.show('SignIn successfully');
-                        GoRouter.of(context).go(Routes.root);
+                        GoRouter.of(context).go(Routes.home);
                       },
                     );
                   },

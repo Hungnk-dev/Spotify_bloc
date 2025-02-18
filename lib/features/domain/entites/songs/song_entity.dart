@@ -14,4 +14,23 @@ class SongEntity {
     required this.duration,
     required this.releaseDate,
   });
+
+  factory SongEntity.fromJson(Map<String, dynamic> json) {
+    return SongEntity(
+      title: json['title'],
+      artist: json['artist'],
+      imageUrl: json['imageUrl'],
+      duration: json['duration'],
+      releaseDate: json['releaseDate'],
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'artist': artist,
+      'imageUrl': imageUrl,
+      'duration': duration,
+    };
+  }
 }

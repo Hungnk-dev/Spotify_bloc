@@ -64,7 +64,7 @@ class SignupScreen extends StatelessWidget {
                       },
                       (r) {
                         ToastUtil.show('Account created successfully');
-                        GoRouter.of(context).go(Routes.root);
+                        GoRouter.of(context).go(Routes.home);
                       },
                     );
                   },

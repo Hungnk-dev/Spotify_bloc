@@ -14,7 +14,7 @@ class SongFirebaseServiceImpl implements SongFirebaseService {
   Future<Either> getNewsSongs() async {
     try {
       List<SongEntity> songs = [];
-      var data = await FirebaseFirestore.instance.collection('Songs').orderBy('releaseDate', descending: true).limit(3).get();
+      var data = await FirebaseFirestore.instance.collection('Songs').orderBy('releaseDate', descending: true).limit(5).get();
 
       for (var element in data.docs) {
         var songModel = SongModel.fromJson(element.data());

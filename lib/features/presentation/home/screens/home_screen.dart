@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:spotify_bloc/features/presentation/home/widgets/news_songs.dart';
+import 'package:spotify_bloc/features/presentation/home/widgets/play_list.dart';
 import 'package:spotify_bloc/lib_src.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -47,6 +48,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                 ],
               ),
             ),
+            const PlayList()
           ],
         ),
       ),
