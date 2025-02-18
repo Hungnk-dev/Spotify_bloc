@@ -6,12 +6,14 @@ class SongModel {
   final String? artist;
   final String? duration;
   final String? image;
+  final String? url;
   final Timestamp? releaseDate;
   SongModel({
     required this.title,
     required this.artist,
     required this.duration,
     required this.image,
+    required this.url,
     required this.releaseDate,
   });
 
@@ -21,6 +23,7 @@ class SongModel {
       artist: data['artist'],
       image: data['image'],
       duration: data['duration'],
+      url: data['url'],
       releaseDate: data['releaseDate'],
     );
   }
@@ -33,7 +36,8 @@ extension SongModelLX on SongModel {
       artist: artist ?? '',
       imageUrl: image ?? '',
       duration: duration ?? '',
-      releaseDate: releaseDate ?? Timestamp.now(),
+      urlSong: url ?? '',
+      //  releaseDate: releaseDate ?? Timestamp.now(),
     );
   }
 }

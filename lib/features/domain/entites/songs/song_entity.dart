@@ -1,18 +1,18 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 class SongEntity {
   final String title;
   final String artist;
   final String duration;
   final String imageUrl;
-  final Timestamp releaseDate;
+  final String urlSong;
+  //final Timestamp releaseDate;
 
   SongEntity({
     required this.title,
     required this.artist,
     required this.imageUrl,
     required this.duration,
-    required this.releaseDate,
+    required this.urlSong,
+    // required this.releaseDate,
   });
 
   factory SongEntity.fromJson(Map<String, dynamic> json) {
@@ -21,7 +21,8 @@ class SongEntity {
       artist: json['artist'],
       imageUrl: json['imageUrl'],
       duration: json['duration'],
-      releaseDate: json['releaseDate'],
+      urlSong: json['urlSong'],
+      //  releaseDate: json['releaseDate'],
     );
   }
 
@@ -31,6 +32,8 @@ class SongEntity {
       'artist': artist,
       'imageUrl': imageUrl,
       'duration': duration,
+      'urlSong': urlSong,
+      //  'releaseDate': releaseDate,
     };
   }
 }

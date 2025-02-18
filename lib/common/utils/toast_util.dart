@@ -11,6 +11,8 @@ class ToastUtil {
       timeInSecForIosWeb: 3,
       backgroundColor: Colors.black,
       textColor: Colors.white,
+      webPosition: 'center',
+      webBgColor: 'black',
       fontSize: 16.0,
     );
   }

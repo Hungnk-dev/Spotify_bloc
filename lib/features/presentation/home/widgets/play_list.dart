@@ -72,7 +72,7 @@ class PlayList extends StatelessWidget {
       separatorBuilder: (context, index) => SizedBox(height: 15.h),
       itemBuilder: (context, index) {
         final song = songs[index];
-        return GestureDetector(
+        return InkWell(
           onTap: () {
             GoRouter.of(context).push(Uri(path: Routes.songPlayer, queryParameters: songs[index].toJson()).toString());
           },
