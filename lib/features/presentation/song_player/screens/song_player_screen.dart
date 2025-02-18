@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:spotify_bloc/common/widgets/favorite_button/favorite_button.dart';
 import 'package:spotify_bloc/features/domain/entites/songs/song_entity.dart';
 import 'package:spotify_bloc/features/presentation/song_player/bloc/song_player_cubit.dart';
 import 'package:spotify_bloc/features/presentation/song_player/bloc/song_player_state.dart';
@@ -81,14 +82,7 @@ class SongPlayerScreen extends StatelessWidget {
               ),
             ],
           ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.favorite_outline_outlined,
-              size: 25.r,
-              color: context.isDarkMode ? grey2 : grey4,
-            ),
-          )
+          FavoriteButton(song: song, size: 35.r),
         ],
       ),
     );
@@ -106,7 +100,9 @@ class SongPlayerScreen extends StatelessWidget {
           children: [
             Slider(
               activeColor: context.isDarkMode ? grey5 : black1,
-              onChanged: (value) {},
+              onChanged: (value) {
+                context.read<SongPlayerCubit>().audioPlayer.seek(Duration(seconds: value.toInt()));
+              },
               min: 0.0,
               max: context.read<SongPlayerCubit>().songDuration.inSeconds.toDouble(),
               value: context.read<SongPlayerCubit>().songPosition.inSeconds.toDouble(),
@@ -139,11 +135,18 @@ class SongPlayerScreen extends StatelessWidget {
                   onPressed: () {},
                   icon: Icon(Icons.skip_previous_rounded, size: 40.r, color: context.isDarkMode ? grey5 : black1),
                 ),
-                IconButton(
-                  onPressed: () {
+                GestureDetector(
+                  onTap: () {
                     context.read<SongPlayerCubit>().playOrPauseSong();
                   },
-                  icon: Icon(context.read<SongPlayerCubit>().audioPlayer.playing ? Icons.pause_rounded : Icons.play_arrow_rounded, size: 40.r, color: context.isDarkMode ? grey5 : black1),
+                  child: Container(
+                      width: 45.w,
+                      height: 45.w,
+                      decoration: BoxDecoration(
+                        color: primaryColor,
+                        borderRadius: BorderRadius.circular(50.r),
+                      ),
+                      child: Icon(context.read<SongPlayerCubit>().audioPlayer.playing ? Icons.pause_rounded : Icons.play_arrow_rounded, size: 40.r, color: context.isDarkMode ? grey5 : black1)),
                 ),
                 IconButton(
                   onPressed: () {},

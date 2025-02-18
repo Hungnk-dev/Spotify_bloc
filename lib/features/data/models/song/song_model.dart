@@ -2,23 +2,28 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:spotify_bloc/features/domain/entites/songs/song_entity.dart';
 
 class SongModel {
-  final String? title;
-  final String? artist;
-  final String? duration;
-  final String? image;
-  final String? url;
-  final Timestamp? releaseDate;
+  String? songId;
+  String? title;
+  String? artist;
+  String? duration;
+  String? image;
+  String? url;
+  bool? isFavorite;
+  Timestamp? releaseDate;
   SongModel({
+    this.songId,
     required this.title,
     required this.artist,
     required this.duration,
     required this.image,
     required this.url,
     required this.releaseDate,
+    this.isFavorite,
   });
 
   factory SongModel.fromJson(Map<String, dynamic> data) {
     return SongModel(
+      songId: data['songId'],
       title: data['title'],
       artist: data['artist'],
       image: data['image'],
@@ -32,11 +37,13 @@ class SongModel {
 extension SongModelLX on SongModel {
   SongEntity toEntity() {
     return SongEntity(
+      songId: songId ?? '',
       title: title ?? '',
       artist: artist ?? '',
       imageUrl: image ?? '',
       duration: duration ?? '',
       urlSong: url ?? '',
+      isFavorite: isFavorite ?? false,
       //  releaseDate: releaseDate ?? Timestamp.now(),
     );
   }

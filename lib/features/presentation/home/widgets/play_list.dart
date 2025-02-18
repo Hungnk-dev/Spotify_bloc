@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:spotify_bloc/common/widgets/favorite_button/favorite_button.dart';
 import 'package:spotify_bloc/features/domain/entites/songs/song_entity.dart';
 import 'package:spotify_bloc/features/presentation/home/bloc/play_list_cubit.dart';
 import 'package:spotify_bloc/features/presentation/home/bloc/play_list_state.dart';
@@ -121,10 +122,7 @@ class PlayList extends StatelessWidget {
                 ),
               ),
               SizedBox(width: 20.w),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.favorite_rounded, color: context.isDarkMode ? grey2 : grey4),
-              )
+              FavoriteButton(song: song),
             ],
           ),
         );
