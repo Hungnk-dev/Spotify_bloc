@@ -40,6 +40,20 @@ class SongPlayerCubit extends Cubit<SongPlayerState> {
     emit(SongPlayerLoaded());
   }
 
+  Future<void> fastForwardSong() async {
+    if (songPosition.inSeconds > 0) {
+      await audioPlayer.seek(songPosition + const Duration(seconds: 10));
+    }
+    emit(SongPlayerLoaded());
+  }
+
+  Future<void> fastRewindSong() async {
+    if (songPosition.inSeconds < songDuration.inSeconds) {
+      await audioPlayer.seek(songPosition + const Duration(seconds: -10));
+    }
+    emit(SongPlayerLoaded());
+  }
+
   @override
   Future<void> close() {
     audioPlayer.dispose();

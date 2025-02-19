@@ -11,6 +11,7 @@ abstract class SongFirebaseService {
   Future<Either> getPlayList();
   Future<Either> addOrRemoveFavoriteSong(String songId);
   Future<bool> isFavorateSong(String songId);
+  Future<Either> getUserFavoriteSongs();
 }
 
 class SongFirebaseServiceImpl implements SongFirebaseService {
@@ -94,6 +95,31 @@ class SongFirebaseServiceImpl implements SongFirebaseService {
       return favoriteSongs.docs.isNotEmpty;
     } on FirebaseException catch (_) {
       return false;
+    }
+  }
+
+  @override
+  Future<Either> getUserFavoriteSongs() async {
+    try {
+      List<SongEntity> songs = [];
+      final FirebaseAuth fireAuth = FirebaseAuth.instance;
+      final FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+      var userId = fireAuth.currentUser?.uid;
+
+      QuerySnapshot favoriteSongs = await firestore.collection('Users').doc(userId).collection('Favorites').get();
+
+      for (var elemetn in favoriteSongs.docs) {
+        String songId = elemetn['songId'];
+        var song = await firestore.collection('Songs').doc(songId).get();
+        SongModel songModel = SongModel.fromJson(song.data()!);
+
+        songs.add(songModel.toEntity());
+      }
+
+      return Right(songs);
+    } on FirebaseException catch (e) {
+      return Left(e.message);
     }
   }
 }

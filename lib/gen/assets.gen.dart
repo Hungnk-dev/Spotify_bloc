@@ -82,6 +82,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/auth_bg.png
   AssetGenImage get authBg => const AssetGenImage('assets/images/auth_bg.png');
 
+  /// File path: assets/images/avatar_default.png
+  AssetGenImage get avatarDefault =>
+      const AssetGenImage('assets/images/avatar_default.png');
+
   /// File path: assets/images/choose_mode_bg.png
   AssetGenImage get chooseModeBg =>
       const AssetGenImage('assets/images/choose_mode_bg.png');
@@ -95,7 +99,8 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/intro_bg.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [authBg, chooseModeBg, homeArtist, introBg];
+  List<AssetGenImage> get values =>
+      [authBg, avatarDefault, chooseModeBg, homeArtist, introBg];
 }
 
 class Assets {

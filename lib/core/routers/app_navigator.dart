@@ -6,6 +6,7 @@ import 'package:spotify_bloc/features/presentation/auth/screens/signup_screen.da
 import 'package:spotify_bloc/features/presentation/choose_mode/screens/choose_mode_screen.dart';
 import 'package:spotify_bloc/features/presentation/home/screens/home_screen.dart';
 import 'package:spotify_bloc/features/presentation/intro/screen/get_started_screen.dart';
+import 'package:spotify_bloc/features/presentation/profile/screen/profile_screen.dart';
 import 'package:spotify_bloc/features/presentation/song_player/screens/song_player_screen.dart';
 import 'package:spotify_bloc/features/presentation/splash/screen/splash.dart';
 
@@ -50,6 +51,10 @@ class AppRouter {
             final song = SongEntity.fromJson(state.uri.queryParameters);
             return SongPlayerScreen(song: song);
           }),
+      transitionGoRoute(
+        path: Routes.profile,
+        pageBuilder: (context, state) => const ProfileScreen(),
+      ),
     ],
   );
 }

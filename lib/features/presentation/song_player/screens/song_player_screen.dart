@@ -132,7 +132,9 @@ class SongPlayerScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<SongPlayerCubit>().fastRewindSong();
+                  },
                   icon: Icon(Icons.skip_previous_rounded, size: 40.r, color: context.isDarkMode ? grey5 : black1),
                 ),
                 GestureDetector(
@@ -146,10 +148,12 @@ class SongPlayerScreen extends StatelessWidget {
                         color: primaryColor,
                         borderRadius: BorderRadius.circular(50.r),
                       ),
-                      child: Icon(context.read<SongPlayerCubit>().audioPlayer.playing ? Icons.pause_rounded : Icons.play_arrow_rounded, size: 40.r, color: context.isDarkMode ? grey5 : black1)),
+                      child: Icon(context.read<SongPlayerCubit>().audioPlayer.playing ? Icons.pause_rounded : Icons.play_arrow_rounded, size: 30.r, color: context.isDarkMode ? grey5 : black1)),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.read<SongPlayerCubit>().fastForwardSong();
+                  },
                   icon: Icon(Icons.skip_next_rounded, size: 40.r, color: context.isDarkMode ? grey5 : black1),
                 ),
               ],

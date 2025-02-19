@@ -74,6 +74,7 @@ class PlayList extends StatelessWidget {
       itemBuilder: (context, index) {
         final song = songs[index];
         return InkWell(
+          borderRadius: BorderRadius.circular(15.r),
           onTap: () {
             GoRouter.of(context).push(Uri(path: Routes.songPlayer, queryParameters: songs[index].toJson()).toString());
           },

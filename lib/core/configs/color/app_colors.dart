@@ -17,6 +17,7 @@ const appTextColor = Color(0xFFD9D9D9);
 
 const Color black = Colors.black;
 const Color black1 = Color(0xFF5C5C5C);
+const Color black2 = Color(0xFF2B2B2B);
 
 const blue = Color(0xFF278CE8);
 

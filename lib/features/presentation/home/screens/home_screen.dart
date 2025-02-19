@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:spotify_bloc/features/presentation/home/widgets/news_songs.dart';
 import 'package:spotify_bloc/features/presentation/home/widgets/play_list.dart';
 import 'package:spotify_bloc/lib_src.dart';
@@ -29,6 +30,15 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         title: SvgPicture.asset(
           Assets.icons.logo,
           height: 40.h,
+        ),
+        action: IconButton(
+          onPressed: () {
+            GoRouter.of(context).push(Routes.profile);
+          },
+          icon: Icon(
+            Icons.person,
+            color: context.isDarkMode ? white : black,
+          ),
         ),
       ),
       body: SingleChildScrollView(

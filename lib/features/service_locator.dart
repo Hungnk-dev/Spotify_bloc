@@ -5,9 +5,11 @@ import 'package:spotify_bloc/features/data/sources/auth/auth_firebase_service.da
 import 'package:spotify_bloc/features/data/sources/song/song_firebase_service.dart';
 import 'package:spotify_bloc/features/domain/repository/auth/auth_repo.dart';
 import 'package:spotify_bloc/features/domain/repository/song/song_repo.dart';
+import 'package:spotify_bloc/features/domain/usecase/auth/get_user_usecase.dart';
 import 'package:spotify_bloc/features/domain/usecase/auth/signin_usecase.dart';
 import 'package:spotify_bloc/features/domain/usecase/auth/signup_usecase.dart';
 import 'package:spotify_bloc/features/domain/usecase/song/add_or_remove_favorite_song.dart';
+import 'package:spotify_bloc/features/domain/usecase/song/get_favorite_songs.dart';
 import 'package:spotify_bloc/features/domain/usecase/song/get_news_songs.dart';
 import 'package:spotify_bloc/features/domain/usecase/song/get_play_list.dart';
 import 'package:spotify_bloc/features/domain/usecase/song/is_favorite_song.dart';
@@ -20,6 +22,7 @@ Future<void> initializeDependencies() async {
   getIt.registerSingleton<AuthRepository>(AuthRepositoryImpl());
   getIt.registerSingleton<SignupUsecase>(SignupUsecase());
   getIt.registerSingleton<SigninUsecase>(SigninUsecase());
+  getIt.registerSingleton<GetUserUsecase>(GetUserUsecase());
 
   // Features - Song
   getIt.registerSingleton<SongFirebaseService>(SongFirebaseServiceImpl());
@@ -28,4 +31,5 @@ Future<void> initializeDependencies() async {
   getIt.registerSingleton<GetPlayListUsecase>(GetPlayListUsecase());
   getIt.registerSingleton<IsFavoriteSongUsecase>(IsFavoriteSongUsecase());
   getIt.registerSingleton<AddOrRemoveFavoriteSongUsecase>(AddOrRemoveFavoriteSongUsecase());
+  getIt.registerSingleton<GetFavoriteSongsUsecase>(GetFavoriteSongsUsecase());
 }

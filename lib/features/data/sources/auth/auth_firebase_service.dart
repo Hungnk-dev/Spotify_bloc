@@ -1,13 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:spotify_bloc/core/configs/constants/app_urls.dart';
 import 'package:spotify_bloc/features/data/models/auth/create_user_req.dart';
 import 'package:spotify_bloc/features/data/models/auth/signin_user_req.dart';
+import 'package:spotify_bloc/features/data/models/auth/user_model.dart';
+import 'package:spotify_bloc/features/domain/entites/auth/user.dart';
 
 abstract class AuthFirebaseService {
   Future<Either> signUp(CreateUserReq user);
 
   Future<Either> signIn(SigninUserReq user);
+
+  Future<Either> getUser();
 }
 
 class AuthFirebaseServiceImpl implements AuthFirebaseService {
@@ -57,6 +62,25 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
         message = e.message ?? 'An error occurred';
       }
       return Left(message);
+    }
+  }
+
+  @override
+  Future<Either> getUser() async {
+    try {
+      var user = FirebaseAuth.instance.currentUser;
+      if (user == null) {
+        return const Left('User not found');
+      }
+      var data = await FirebaseFirestore.instance.collection('Users').doc(user.uid).get();
+
+      UserModel userModel = UserModel.fromJson(data.data()!);
+      userModel.imageUrl = user.photoURL ?? AppUrls.avatarDefault;
+      UserEntity userEntity = userModel.toEntity();
+
+      return Right(userEntity);
+    } on FirebaseAuthException catch (e) {
+      return Left(e.message ?? 'An error occurred');
     }
   }
 }

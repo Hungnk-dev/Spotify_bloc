@@ -12,4 +12,5 @@ class Routes {
   //Root
   static const String home = '/home';
   static const String songPlayer = '/songPlayer';
+  static const String profile = '/profile';
 }
