@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:spotify_bloc/common/widgets/cached_network_image/cached_network_image.dart';
 import 'package:spotify_bloc/common/widgets/favorite_button/favorite_button.dart';
 import 'package:spotify_bloc/features/domain/entites/songs/song_entity.dart';
 import 'package:spotify_bloc/features/presentation/profile/bloc/favorite_songs_cubit.dart';
@@ -197,17 +198,11 @@ class ProfileScreen extends StatelessWidget {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
+                  CustomNetworkImage(
                     height: 90.w,
                     width: 90.w,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: NetworkImage(
-                          state.user.imageUrl,
-                        ),
-                      ),
-                    ),
+                    urlToImage: state.user.imageUrl,
+                    shape: BoxShape.circle,
                   ),
                   SizedBox(height: 10.h),
                   Text(

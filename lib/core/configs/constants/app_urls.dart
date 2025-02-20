@@ -3,5 +3,5 @@ class AppUrls {
   static const String superBaseCover = '$superBase/covers/';
   static const String superBaseSong = '$superBase/songs/';
 
-  static const String avatarDefault = 'https://inkythuatso.com/uploads/thumbnails/800/2023/03/14-anh-dai-dien-trang-inkythuatso-03-15-27-43.jpg';
+  static const String avatarDefault = 'https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
 }

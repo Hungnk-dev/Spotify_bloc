@@ -1,11 +1,11 @@
 class SongEntity {
-  final String songId;
-  final String title;
-  final String artist;
-  final String duration;
-  final String imageUrl;
-  final String urlSong;
-  final bool isFavorite;
+  String songId;
+  String title;
+  String artist;
+  String duration;
+  String imageUrl;
+  String urlSong;
+  bool isFavorite;
   //final Timestamp releaseDate;
 
   SongEntity({

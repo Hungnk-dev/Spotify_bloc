@@ -109,10 +109,12 @@ class SongFirebaseServiceImpl implements SongFirebaseService {
 
       QuerySnapshot favoriteSongs = await firestore.collection('Users').doc(userId).collection('Favorites').get();
 
-      for (var elemetn in favoriteSongs.docs) {
-        String songId = elemetn['songId'];
+      for (var element in favoriteSongs.docs) {
+        String songId = element['songId'];
         var song = await firestore.collection('Songs').doc(songId).get();
         SongModel songModel = SongModel.fromJson(song.data()!);
+        songModel.songId = songId;
+        songModel.isFavorite = true;
 
         songs.add(songModel.toEntity());
       }

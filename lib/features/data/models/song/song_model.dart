@@ -30,6 +30,7 @@ class SongModel {
       duration: data['duration'],
       url: data['url'],
       releaseDate: data['releaseDate'],
+      isFavorite: data['Favorites'],
     );
   }
 }
