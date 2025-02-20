@@ -9,8 +9,11 @@ class FavoriteButtonCubit extends Cubit<FavoriteButtonState> {
   Future<void> favoriteButtonUpdate(String songId) async {
     var result = await getIt<AddOrRemoveFavoriteSongUsecase>().call(params: songId);
 
-    result.fold((l) {}, (isFavorite) {
-      emit(FavoriteButtonUpdate(isFavorite: isFavorite));
-    });
+    result.fold(
+      (l) {},
+      (isFavorite) {
+        emit(FavoriteButtonUpdate(isFavorite: isFavorite));
+      },
+    );
   }
 }

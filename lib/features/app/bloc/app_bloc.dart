@@ -28,6 +28,9 @@ class AppBloc {
     BlocProvider<ProfileCubit>(
       create: (_) => profileCubit,
     ),
+    BlocProvider<FavoriteButtonCubit>(
+      create: (_) => favoriteButtonCubit,
+    ),
   ];
 
   static final AppBloc instance = AppBloc._internal();

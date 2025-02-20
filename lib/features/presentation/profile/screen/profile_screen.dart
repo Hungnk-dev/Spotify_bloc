@@ -177,7 +177,7 @@ class ProfileScreen extends StatelessWidget {
     return BlocProvider(
       create: (_) => ProfileCubit()..getProfile(),
       child: Container(
-        height: 0.3.sh,
+        height: 300.h,
         width: double.infinity,
         decoration: BoxDecoration(
           color: context.isDarkMode ? black2 : white,

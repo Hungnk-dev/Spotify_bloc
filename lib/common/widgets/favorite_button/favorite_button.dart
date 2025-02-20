@@ -15,42 +15,44 @@ class FavoriteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<FavoriteButtonCubit>(
-      create: (_) => FavoriteButtonCubit(),
-      child: BlocBuilder<FavoriteButtonCubit, FavoriteButtonState>(builder: (context, state) {
-        if (state is FavoriteButtonInitial) {
-          return IconButton(
-            onPressed: () async {
-              await context.read<FavoriteButtonCubit>().favoriteButtonUpdate(song.songId);
-              if (onTap != null) {
-                onTap!();
-              }
-            },
-            icon: Icon(
-              song.isFavorite ? Icons.favorite : Icons.favorite_outline_outlined,
-              size: size ?? 25.r,
-              color: context.isDarkMode ? grey2 : grey4,
-            ),
-          );
-        }
-
-        if (state is FavoriteButtonUpdate) {
-          return IconButton(
-            onPressed: () {
-              context.read<FavoriteButtonCubit>().favoriteButtonUpdate(song.songId);
-            },
-            icon: Icon(
-              state.isFavorite ? Icons.favorite : Icons.favorite_outline_outlined,
-              size: size ?? 25.r,
-              color: context.isDarkMode ? grey2 : grey4,
-            ),
-          );
-        }
-
-        return const Center(
-          child: CircularProgressIndicator(),
+    return BlocBuilder<FavoriteButtonCubit, FavoriteButtonState>(buildWhen: (previous, current) {
+      if (previous is FavoriteButtonUpdate && current is FavoriteButtonUpdate) {
+        return previous.isFavorite != current.isFavorite;
+      }
+      return true;
+    }, builder: (context, state) {
+      if (state is FavoriteButtonInitial) {
+        return IconButton(
+          onPressed: () async {
+            await context.read<FavoriteButtonCubit>().favoriteButtonUpdate(song.songId);
+            if (onTap != null) {
+              onTap!();
+            }
+          },
+          icon: Icon(
+            song.isFavorite ? Icons.favorite : Icons.favorite_outline_outlined,
+            size: size ?? 25.r,
+            color: context.isDarkMode ? grey2 : grey4,
+          ),
         );
-      }),
-    );
+      }
+
+      if (state is FavoriteButtonUpdate) {
+        return IconButton(
+          onPressed: () {
+            context.read<FavoriteButtonCubit>().favoriteButtonUpdate(song.songId);
+          },
+          icon: Icon(
+            state.isFavorite ? Icons.favorite : Icons.favorite_outline_outlined,
+            size: size ?? 25.r,
+            color: context.isDarkMode ? grey2 : grey4,
+          ),
+        );
+      }
+
+      return const Center(
+        child: CircularProgressIndicator(),
+      );
+    });
   }
 }
