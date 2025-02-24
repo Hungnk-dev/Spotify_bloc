@@ -18,12 +18,12 @@ class SongFirebaseServiceImpl implements SongFirebaseService {
   @override
   Future<Either> getNewsSongs() async {
     try {
-      List<SongEntity> songs = [];
-      var data = await FirebaseFirestore.instance.collection('Songs').orderBy('releaseDate', descending: true).limit(5).get();
+      final List<SongEntity> songs = [];
+      final data = await FirebaseFirestore.instance.collection('Songs').orderBy('releaseDate', descending: true).limit(5).get();
 
-      for (var element in data.docs) {
-        var songModel = SongModel.fromJson(element.data());
-        bool isFavorate = await getIt<IsFavoriteSongUsecase>().call(params: element.reference.id);
+      for (final element in data.docs) {
+        final songModel = SongModel.fromJson(element.data());
+        final bool isFavorate = await getIt<IsFavoriteSongUsecase>().call(params: element.reference.id);
         songModel.songId = element.reference.id;
         songModel.isFavorite = isFavorate;
 
@@ -39,12 +39,12 @@ class SongFirebaseServiceImpl implements SongFirebaseService {
   @override
   Future<Either> getPlayList() async {
     try {
-      List<SongEntity> songs = [];
-      var data = await FirebaseFirestore.instance.collection('Songs').orderBy('releaseDate', descending: true).get();
+      final List<SongEntity> songs = [];
+      final data = await FirebaseFirestore.instance.collection('Songs').orderBy('releaseDate', descending: true).get();
 
-      for (var element in data.docs) {
-        var songModel = SongModel.fromJson(element.data());
-        bool isFavorate = await getIt<IsFavoriteSongUsecase>().call(params: element.reference.id);
+      for (final element in data.docs) {
+        final songModel = SongModel.fromJson(element.data());
+        final bool isFavorate = await getIt<IsFavoriteSongUsecase>().call(params: element.reference.id);
         songModel.songId = element.reference.id;
         songModel.isFavorite = isFavorate;
 
@@ -64,9 +64,9 @@ class SongFirebaseServiceImpl implements SongFirebaseService {
       final FirebaseAuth fireAuth = FirebaseAuth.instance;
       final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-      var userId = fireAuth.currentUser?.uid;
+      final userId = fireAuth.currentUser?.uid;
 
-      QuerySnapshot favoriteSongs = await firestore.collection('Users').doc(userId).collection('Favorites').where('songId', isEqualTo: songId).get();
+      final favoriteSongs = await firestore.collection('Users').doc(userId).collection('Favorites').where('songId', isEqualTo: songId).get();
 
       if (favoriteSongs.docs.isNotEmpty) {
         await favoriteSongs.docs.first.reference.delete();
@@ -88,9 +88,9 @@ class SongFirebaseServiceImpl implements SongFirebaseService {
       final FirebaseAuth fireAuth = FirebaseAuth.instance;
       final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-      var userId = fireAuth.currentUser?.uid;
+      final userId = fireAuth.currentUser?.uid;
 
-      QuerySnapshot favoriteSongs = await firestore.collection('Users').doc(userId).collection('Favorites').where('songId', isEqualTo: songId).get();
+      final QuerySnapshot favoriteSongs = await firestore.collection('Users').doc(userId).collection('Favorites').where('songId', isEqualTo: songId).get();
 
       return favoriteSongs.docs.isNotEmpty;
     } on FirebaseException catch (_) {
@@ -101,18 +101,18 @@ class SongFirebaseServiceImpl implements SongFirebaseService {
   @override
   Future<Either> getUserFavoriteSongs() async {
     try {
-      List<SongEntity> songs = [];
+      final List<SongEntity> songs = [];
       final FirebaseAuth fireAuth = FirebaseAuth.instance;
       final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-      var userId = fireAuth.currentUser?.uid;
+      final userId = fireAuth.currentUser?.uid;
 
-      QuerySnapshot favoriteSongs = await firestore.collection('Users').doc(userId).collection('Favorites').get();
+      final favoriteSongs = await firestore.collection('Users').doc(userId).collection('Favorites').get();
 
-      for (var element in favoriteSongs.docs) {
-        String songId = element['songId'];
-        var song = await firestore.collection('Songs').doc(songId).get();
-        SongModel songModel = SongModel.fromJson(song.data()!);
+      for (final element in favoriteSongs.docs) {
+        final songId = element['songId'];
+        final song = await firestore.collection('Songs').doc(songId).get();
+        final songModel = SongModel.fromJson(song.data()!);
         songModel.songId = songId;
         songModel.isFavorite = true;
 

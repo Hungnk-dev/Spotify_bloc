@@ -27,7 +27,7 @@ class SongEntity {
       imageUrl: json['imageUrl'],
       duration: json['duration'],
       urlSong: json['urlSong'],
-      isFavorite: json['isFavorite'] == 'true' ? true : false,
+      isFavorite: json['isFavorite'] == 'true',
       //  releaseDate: json['releaseDate'],
     );
   }

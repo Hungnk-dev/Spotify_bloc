@@ -68,7 +68,7 @@ class DefaultImage extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                     color: white,
                   ),
-                )
+                ),
         ],
       ),
     );

@@ -16,10 +16,11 @@ class SigninScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BasicAppBar(
-          title: SvgPicture.asset(
-        Assets.icons.logo,
-        height: 33.h,
-      )),
+        title: SvgPicture.asset(
+          Assets.icons.logo,
+          height: 33.h,
+        ),
+      ),
       bottomNavigationBar: _buildSignInText(context),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 25.w),
@@ -42,29 +43,32 @@ class SigninScreen extends StatelessWidget {
               _buildPasswordField(context),
               SizedBox(height: 33.h),
               BasicAppButton(
-                  onPressed: () async {
-                    if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
-                      ToastUtil.show('Please fill all fields');
-                      return;
-                    }
-                    var result = await CallApiWidget.checkTimeCallApi(getIt<SigninUsecase>().call(
+                onPressed: () async {
+                  if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
+                    ToastUtil.show('Please fill all fields');
+                    return;
+                  }
+                  final result = await CallApiWidget.checkTimeCallApi(
+                    getIt<SigninUsecase>().call(
                       params: SigninUserReq(
                         email: _emailController.text.trim(),
                         password: _passwordController.text.trim(),
                       ),
-                    ));
-                    result.fold(
-                      (l) => {
-                        ToastUtil.show(l),
-                      },
-                      (r) {
-                        ToastUtil.show('SignIn successfully');
-                        GoRouter.of(context).go(Routes.home);
-                      },
-                    );
-                  },
-                  title: 'Sign In',
-                  height: 80.h),
+                    ),
+                  );
+                  result.fold(
+                    (l) => {
+                      ToastUtil.show(l),
+                    },
+                    (r) {
+                      ToastUtil.show('SignIn successfully');
+                      GoRouter.of(context).go(Routes.home);
+                    },
+                  );
+                },
+                title: 'Sign In',
+                height: 80.h,
+              ),
               SizedBox(height: 30.h),
               SizedBox(height: 38.h),
               // _buildOtherLoginOptions(),

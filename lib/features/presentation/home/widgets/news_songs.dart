@@ -4,8 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:spotify_bloc/features/domain/entites/songs/song_entity.dart';
-import 'package:spotify_bloc/features/presentation/home/bloc/news_songs_cubit.dart';
-import 'package:spotify_bloc/features/presentation/home/bloc/news_songs_state.dart';
 import 'package:spotify_bloc/lib_src.dart';
 
 class NewsSongs extends StatelessWidget {
@@ -61,18 +59,18 @@ class NewsSongs extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.bottomRight,
                       child: Container(
-                          height: 30.h,
-                          width: 30.w,
-                          transform: Matrix4.translationValues(10.w, 10.h, 0),
-                          decoration: BoxDecoration(color: context.isDarkMode ? grey2 : grey5, shape: BoxShape.circle),
-                          child: Align(
-                            child: SvgPicture.asset(
-                              fit: BoxFit.contain,
-                              Assets.icons.playIcon,
-                              // ignore: deprecated_member_use
-                              color: context.isDarkMode ? grey4 : grey1,
-                            ),
-                          )),
+                        height: 30.h,
+                        width: 30.w,
+                        transform: Matrix4.translationValues(10.w, 10.h, 0),
+                        decoration: BoxDecoration(color: context.isDarkMode ? grey2 : grey5, shape: BoxShape.circle),
+                        child: Align(
+                          child: SvgPicture.asset(
+                            Assets.icons.playIcon,
+                            // ignore: deprecated_member_use
+                            color: context.isDarkMode ? grey4 : grey1,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),

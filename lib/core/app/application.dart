@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-
-import '../../lib_src.dart';
+import 'package:spotify_bloc/lib_src.dart';
 
 class Application {
   ///Singleton factory

@@ -1,10 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:spotify_bloc/common/bloc/favorite_button/favorite_button_cubit.dart';
-import 'package:spotify_bloc/features/presentation/home/bloc/news_songs_cubit.dart';
-import 'package:spotify_bloc/features/presentation/home/bloc/play_list_cubit.dart';
-import 'package:spotify_bloc/features/presentation/profile/bloc/profile_cubit.dart';
-
-import '../../presentation/choose_mode/bloc/theme_cubit.dart';
+import 'package:spotify_bloc/lib_src.dart';
 
 class AppBloc {
   AppBloc._internal();

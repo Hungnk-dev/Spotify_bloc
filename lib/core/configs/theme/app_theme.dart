@@ -30,12 +30,13 @@ class AppTheme {
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-        backgroundColor: appColors.primary,
-        elevation: 0,
-        textStyle: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.r)),
-      )),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: appColors.primary,
+          elevation: 0,
+          textStyle: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.r)),
+        ),
+      ),
     );
     return AppTheme(themeData);
   }
@@ -63,12 +64,13 @@ class AppTheme {
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-        backgroundColor: appColors.primary,
-        elevation: 0,
-        textStyle: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.r)),
-      )),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: appColors.primary,
+          elevation: 0,
+          textStyle: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.r)),
+        ),
+      ),
     );
     return AppTheme(themeData);
   }

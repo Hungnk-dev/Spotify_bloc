@@ -3,9 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:spotify_bloc/features/presentation/home/bloc/play_list_cubit.dart';
-import 'package:spotify_bloc/features/presentation/home/widgets/news_songs.dart';
-import 'package:spotify_bloc/features/presentation/home/widgets/play_list.dart';
 import 'package:spotify_bloc/lib_src.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -66,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                   ],
                 ),
               ),
-              const PlayList()
+              const PlayList(),
             ],
           ),
         ),
@@ -114,7 +111,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       isScrollable: true,
       indicatorColor: primaryColor,
       indicatorSize: TabBarIndicatorSize.tab,
-      indicatorWeight: 2,
       unselectedLabelColor: context.isDarkMode ? white.withOpacity(0.5) : black.withOpacity(0.5),
       dividerHeight: 0,
       tabs: [

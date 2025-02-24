@@ -3,10 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:spotify_bloc/common/widgets/favorite_button/favorite_button.dart';
 import 'package:spotify_bloc/features/domain/entites/songs/song_entity.dart';
-import 'package:spotify_bloc/features/presentation/home/bloc/play_list_cubit.dart';
-import 'package:spotify_bloc/features/presentation/home/bloc/play_list_state.dart';
 import 'package:spotify_bloc/lib_src.dart';
 
 class PlayList extends StatelessWidget {
@@ -81,18 +78,17 @@ class PlayList extends StatelessWidget {
           child: Row(
             children: [
               Container(
-                  height: 37.h,
-                  width: 37.w,
-                  decoration: BoxDecoration(color: context.isDarkMode ? grey2 : grey5, shape: BoxShape.circle),
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: SvgPicture.asset(
-                      fit: BoxFit.contain,
-                      Assets.icons.playIcon,
-                      // ignore: deprecated_member_use
-                      color: context.isDarkMode ? grey4 : grey1,
-                    ),
-                  )),
+                height: 37.h,
+                width: 37.w,
+                decoration: BoxDecoration(color: context.isDarkMode ? grey2 : grey5, shape: BoxShape.circle),
+                child: Align(
+                  child: SvgPicture.asset(
+                    Assets.icons.playIcon,
+                    // ignore: deprecated_member_use
+                    color: context.isDarkMode ? grey4 : grey1,
+                  ),
+                ),
+              ),
               SizedBox(width: 20.w),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

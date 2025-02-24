@@ -1,17 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:spotify_bloc/features/presentation/auth/screens/signin_screen.dart';
-import 'package:spotify_bloc/features/presentation/auth/screens/signup_or_signin.dart';
-import 'package:spotify_bloc/features/presentation/auth/screens/signup_screen.dart';
-import 'package:spotify_bloc/features/presentation/choose_mode/screens/choose_mode_screen.dart';
-import 'package:spotify_bloc/features/presentation/home/screens/home_screen.dart';
-import 'package:spotify_bloc/features/presentation/intro/screen/get_started_screen.dart';
-import 'package:spotify_bloc/features/presentation/profile/screen/profile_screen.dart';
-import 'package:spotify_bloc/features/presentation/song_player/screens/song_player_screen.dart';
-import 'package:spotify_bloc/features/presentation/splash/screen/splash.dart';
-
-import '../../features/domain/entites/songs/song_entity.dart';
-import 'app_routes.dart';
+import 'package:spotify_bloc/features/domain/entites/songs/song_entity.dart';
+import 'package:spotify_bloc/lib_src.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
@@ -46,11 +36,12 @@ class AppRouter {
         pageBuilder: (context, state) => const HomeScreen(),
       ),
       transitionGoRoute(
-          path: Routes.songPlayer,
-          pageBuilder: (context, state) {
-            final song = SongEntity.fromJson(state.uri.queryParameters);
-            return SongPlayerScreen(song: song);
-          }),
+        path: Routes.songPlayer,
+        pageBuilder: (context, state) {
+          final song = SongEntity.fromJson(state.uri.queryParameters);
+          return SongPlayerScreen(song: song);
+        },
+      ),
       transitionGoRoute(
         path: Routes.profile,
         pageBuilder: (context, state) => const ProfileScreen(),

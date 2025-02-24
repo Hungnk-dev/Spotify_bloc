@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../../../lib_src.dart';
+import 'package:spotify_bloc/lib_src.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

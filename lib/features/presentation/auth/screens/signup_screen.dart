@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:spotify_bloc/features/data/models/auth/create_user_req.dart';
+import 'package:spotify_bloc/features/domain/usecase/auth/signup_usecase.dart';
 import 'package:spotify_bloc/lib_src.dart';
-
-import '../../../data/models/auth/create_user_req.dart';
-import '../../../domain/usecase/auth/signup_usecase.dart';
 
 class SignupScreen extends StatelessWidget {
   SignupScreen({super.key});
@@ -17,10 +16,11 @@ class SignupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: BasicAppBar(
-          title: SvgPicture.asset(
-        Assets.icons.logo,
-        height: 33.h,
-      )),
+        title: SvgPicture.asset(
+          Assets.icons.logo,
+          height: 33.h,
+        ),
+      ),
       bottomNavigationBar: _buildSignInText(context),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 25.w),
@@ -45,31 +45,34 @@ class SignupScreen extends StatelessWidget {
               _buildPasswordField(context),
               SizedBox(height: 33.h),
               BasicAppButton(
-                  onPressed: () async {
-                    if (_fullnameController.text.isEmpty || _emailController.text.isEmpty || _passwordController.text.isEmpty) {
-                      ToastUtil.show('Please fill all fields');
-                      return;
-                    }
+                onPressed: () async {
+                  if (_fullnameController.text.isEmpty || _emailController.text.isEmpty || _passwordController.text.isEmpty) {
+                    ToastUtil.show('Please fill all fields');
+                    return;
+                  }
 
-                    var result = await CallApiWidget.checkTimeCallApi(getIt<SignupUsecase>().call(
+                  final result = await CallApiWidget.checkTimeCallApi(
+                    getIt<SignupUsecase>().call(
                       params: CreateUserReq(
                         fullName: _fullnameController.text.trim(),
                         email: _emailController.text.trim(),
                         password: _passwordController.text.trim(),
                       ),
-                    ));
-                    result.fold(
-                      (l) => {
-                        ToastUtil.show(l),
-                      },
-                      (r) {
-                        ToastUtil.show('Account created successfully');
-                        GoRouter.of(context).go(Routes.home);
-                      },
-                    );
-                  },
-                  title: 'Create Account',
-                  height: 80.h),
+                    ),
+                  );
+                  result.fold(
+                    (l) => {
+                      ToastUtil.show(l),
+                    },
+                    (r) {
+                      ToastUtil.show('Account created successfully');
+                      GoRouter.of(context).go(Routes.home);
+                    },
+                  );
+                },
+                title: 'Create Account',
+                height: 80.h,
+              ),
               SizedBox(height: 30.h),
               SizedBox(height: 38.h),
               // _buildOtherLoginOptions(),

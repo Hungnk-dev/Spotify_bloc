@@ -1,9 +1,9 @@
-import '../../../lib_src.dart';
+import 'package:spotify_bloc/lib_src.dart';
 
 class CallApiWidget {
-  static Future<dynamic> checkTimeCallApi(dynamic api, {bool isDimiss = true}) async {
+  static Future<dynamic> checkTimeCallApi(api, {bool isDimiss = true}) async {
     DialogWidget.showLoading();
-    Stopwatch stopwatch = Stopwatch()..start();
+    final stopwatch = Stopwatch()..start();
     final result = await api;
     stopwatch.stop();
     if (stopwatch.elapsedMilliseconds < 200) {

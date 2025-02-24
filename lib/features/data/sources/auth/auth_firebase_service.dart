@@ -5,7 +5,6 @@ import 'package:spotify_bloc/core/configs/constants/app_urls.dart';
 import 'package:spotify_bloc/features/data/models/auth/create_user_req.dart';
 import 'package:spotify_bloc/features/data/models/auth/signin_user_req.dart';
 import 'package:spotify_bloc/features/data/models/auth/user_model.dart';
-import 'package:spotify_bloc/features/domain/entites/auth/user.dart';
 
 abstract class AuthFirebaseService {
   Future<Either> signUp(CreateUserReq user);
@@ -21,7 +20,7 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
   @override
   Future<Either> signUp(CreateUserReq user) async {
     try {
-      var data = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: user.email, password: user.password);
+      final data = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: user.email, password: user.password);
 
       await FirebaseFirestore.instance.collection('Users').doc(data.user?.uid).set(
         {
@@ -68,15 +67,15 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
   @override
   Future<Either> getUser() async {
     try {
-      var user = FirebaseAuth.instance.currentUser;
+      final user = FirebaseAuth.instance.currentUser;
       if (user == null) {
         return const Left('User not found');
       }
-      var data = await FirebaseFirestore.instance.collection('Users').doc(user.uid).get();
+      final data = await FirebaseFirestore.instance.collection('Users').doc(user.uid).get();
 
-      UserModel userModel = UserModel.fromJson(data.data()!);
+      final userModel = UserModel.fromJson(data.data()!);
       userModel.imageUrl = user.photoURL ?? AppUrls.avatarDefault;
-      UserEntity userEntity = userModel.toEntity();
+      final userEntity = userModel.toEntity();
 
       return Right(userEntity);
     } on FirebaseAuthException catch (e) {

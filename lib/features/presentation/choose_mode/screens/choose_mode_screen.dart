@@ -5,8 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../../../lib_src.dart';
+import 'package:spotify_bloc/lib_src.dart';
 
 class ChooseModeScreen extends StatelessWidget {
   const ChooseModeScreen({super.key});
@@ -34,7 +33,6 @@ class ChooseModeScreen extends StatelessWidget {
               children: [
                 SizedBox(height: 42.h),
                 Align(
-                  alignment: Alignment.center,
                   child: SvgPicture.asset(Assets.icons.logo),
                 ),
                 const Spacer(),
@@ -65,11 +63,12 @@ class ChooseModeScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 37.h),
                 BasicAppButton(
-                    onPressed: () {
-                      GoRouter.of(context).push(Routes.signupOrSignin);
-                    },
-                    title: 'Continue',
-                    height: 92.h),
+                  onPressed: () {
+                    GoRouter.of(context).push(Routes.signupOrSignin);
+                  },
+                  title: 'Continue',
+                  height: 92.h,
+                ),
                 SizedBox(height: 69.h),
               ],
             ),

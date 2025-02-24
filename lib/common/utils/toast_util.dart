@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class ToastUtil {
-  static void show(String toastMessage) async {
+  static Future<void> show(String toastMessage) async {
     Fluttertoast.cancel();
     await Fluttertoast.showToast(
       msg: toastMessage,

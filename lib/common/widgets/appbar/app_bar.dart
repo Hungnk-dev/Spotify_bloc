@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:spotify_bloc/common/helpers/is_dark_mode.dart';
-
-import '../../../core/configs/color/app_colors.dart';
+import 'package:spotify_bloc/lib_src.dart';
 
 class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
   const BasicAppBar({super.key, this.title, this.hideBackButton = false, this.action, this.backgroundColor});
