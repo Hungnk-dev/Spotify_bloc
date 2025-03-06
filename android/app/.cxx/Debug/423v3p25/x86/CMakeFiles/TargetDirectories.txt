@@ -1,0 +1,2 @@
+/Volumes/Hungnk/WorkSpace/Flutter/Personal/Spotify_bloc/android/app/.cxx/Debug/423v3p25/x86/CMakeFiles/edit_cache.dir
+/Volumes/Hungnk/WorkSpace/Flutter/Personal/Spotify_bloc/android/app/.cxx/Debug/423v3p25/x86/CMakeFiles/rebuild_cache.dir
