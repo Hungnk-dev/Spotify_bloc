@@ -111,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       isScrollable: true,
       indicatorColor: primaryColor,
       indicatorSize: TabBarIndicatorSize.tab,
-      unselectedLabelColor: context.isDarkMode ? white.withOpacity(0.5) : black.withOpacity(0.5),
+      unselectedLabelColor: context.isDarkMode ? white.withValues(alpha: 0.5) : black.withValues(alpha: 0.5),
       dividerHeight: 0,
       tabs: [
         Text(

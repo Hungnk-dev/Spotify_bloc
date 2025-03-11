@@ -25,7 +25,7 @@ class ChooseModeScreen extends StatelessWidget {
             ),
           ),
           Container(
-            color: Colors.black.withOpacity(0.15),
+            color: Colors.black..withValues(alpha: 0.15),
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 35.w),
@@ -95,7 +95,7 @@ class ChooseModeScreen extends StatelessWidget {
                 width: 73.w,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: const Color(0xFF30393C).withOpacity(0.5),
+                  color: const Color(0xFF30393C)..withValues(alpha: 0.5),
                 ),
                 child: SvgPicture.asset(
                   iconPath,

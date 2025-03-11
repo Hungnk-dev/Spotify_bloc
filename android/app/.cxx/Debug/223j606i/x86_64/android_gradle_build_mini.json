@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/Users/hungnk/SDK/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/hungnk/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/hungnk/workspace/Personal/Spotify_bloc/android/app/.cxx/Debug/223j606i/x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/hungnk/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/hungnk/workspace/Personal/Spotify_bloc/android/app/.cxx/Debug/223j606i/x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}
