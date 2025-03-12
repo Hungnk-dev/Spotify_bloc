@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:spotify_bloc/core/logs/cubit_observer.dart';
 import 'package:spotify_bloc/lib_src.dart';
 
 Future<void> main() async {
@@ -20,6 +21,9 @@ Future<void> main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+
+  // Register CubitObserver
+  Bloc.observer = CubitObserver();
 
   await Application.initialAppLication();
 
